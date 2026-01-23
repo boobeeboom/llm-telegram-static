@@ -17,7 +17,7 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="font-semibold">Контакты</h4>
             <div className="space-y-2 text-sm text-muted-foreground">
-              <p>Forko IT</p>
+              <p>Forko Trade Limited</p>
               <a
                 href="mailto:info@forko-it.com"
                 className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
@@ -52,7 +52,7 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© {currentYear} Forko IT. Все права защищены.</p>
+          <p>© {currentYear} Forko Trade Limited. Все права защищены.</p>
         </div>
       </div>
     </footer>

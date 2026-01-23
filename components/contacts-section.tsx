@@ -16,7 +16,7 @@ export function ContactsSection() {
               <Building2 className="w-6 h-6 text-primary" />
             </div>
             <h3 className="text-xl font-semibold">Компания-разработчик</h3>
-            <p className="text-2xl font-bold text-gradient">Forko IT</p>
+            <p className="text-2xl font-bold text-gradient">Forko Trade Limited</p>
           </div>
 
           <div className="glow-card bg-card border border-border rounded-xl p-6 space-y-4">
