@@ -2,12 +2,16 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Globe } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { useLanguage } from "@/lib/i18n/context"
+import { useTranslation } from "@/lib/i18n/useTranslation"
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { language, setLanguage } = useLanguage()
+  const t = useTranslation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,14 +22,18 @@ export function Header() {
   }, [])
 
   const menuItems = [
-    { label: "Возможности", href: "#features" },
-    { label: "Для кого", href: "#for-whom" },
-    { label: "Тариф", href: "#pricing" },
-    { label: "Как работает", href: "#how-it-works" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Контакты", href: "#contacts" },
-    { label: "Документы", href: "#documents" },
+    { label: t.header.features, href: "#features" },
+    { label: t.header.forWhom, href: "#for-whom" },
+    { label: t.header.pricing, href: "#pricing" },
+    { label: t.header.howItWorks, href: "#how-it-works" },
+    { label: t.header.faq, href: "#faq" },
+    { label: t.header.contacts, href: "#contacts" },
+    { label: t.header.documents, href: "#documents" },
   ]
+
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "ru" : "en")
+  }
 
   return (
     <header
@@ -53,8 +61,17 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Switch language"
+            >
+              <Globe size={18} />
+              <span className="font-medium">{language.toUpperCase()}</span>
+            </button>
+
             <a href="#pricing" className="hidden md:inline-flex">
-              <Button>Подключить бота</Button>
+              <Button>{t.header.connectBot}</Button>
             </a>
 
             <button
@@ -81,7 +98,7 @@ export function Header() {
                 </a>
               ))}
               <a href="#pricing" className="md:hidden">
-                <Button>Подключить бота</Button>
+                <Button>{t.header.connectBot}</Button>
               </a>
             </div>
           </nav>

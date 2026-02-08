@@ -1,39 +1,28 @@
+"use client"
+
 import { MessageSquare, Layers, TrendingUp, FileText, Code, Mail } from "lucide-react"
+import { useTranslation } from "@/lib/i18n/useTranslation"
 
-const features = [
-  {
-    icon: Layers,
-    title: "Выбор модели",
-    description: "Переключайтесь между OpenAI и Anthropic перед каждым запросом для оптимального результата",
-  },
-  {
-    icon: MessageSquare,
-    title: "Чат-режим в Telegram",
-    description: "Задавайте вопросы и получайте ответы прямо в удобном интерфейсе Telegram",
-  },
-  {
-    icon: TrendingUp,
-    title: "Контроль расходов",
-    description: "Отслеживайте использование токенов в реальном времени с помощью индикатора",
-  },
-]
-
-const useCases = [
-  { icon: Code, label: "Написание кода" },
-  { icon: FileText, label: "Создание текстов" },
-  { icon: MessageSquare, label: "Генерация идей" },
-  { icon: TrendingUp, label: "Анализ данных" },
-  { icon: FileText, label: "Резюме документов" },
-  { icon: Mail, label: "Деловые письма" },
-]
+const mainIcons = [Layers, MessageSquare, TrendingUp]
+const useCaseIcons = [Code, FileText, MessageSquare, TrendingUp, FileText, Mail]
 
 export function FeaturesSection() {
+  const t = useTranslation()
+  const features = t.features.main.map((feature, index) => ({
+    ...feature,
+    icon: mainIcons[index],
+  }))
+  const useCases = t.features.useCases.items.map((label, index) => ({
+    icon: useCaseIcons[index],
+    label,
+  }))
+
   return (
     <section id="features" className="py-20 md:py-32 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Возможности</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Всё необходимое для эффективной работы с AI</p>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">{t.features.title}</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t.features.subtitle}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -49,7 +38,7 @@ export function FeaturesSection() {
         </div>
 
         <div className="mt-16">
-          <h3 className="text-2xl font-semibold text-center mb-8">Сценарии применения</h3>
+          <h3 className="text-2xl font-semibold text-center mb-8">{t.features.useCases.title}</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {useCases.map((useCase, index) => (
               <div

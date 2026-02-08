@@ -1,49 +1,25 @@
-import { Shield, CreditCard, Zap, Globe, Sparkles, BarChart } from "lucide-react"
+"use client"
 
-const benefits = [
-  {
-    icon: Globe,
-    title: "Без VPN",
-    description: "Работает напрямую в России, никаких дополнительных настроек не требуется",
-  },
-  {
-    icon: Sparkles,
-    title: "Один пакет вместо двух",
-    description: "Доступ к OpenAI и Anthropic в одном месте — не нужно покупать два пакета",
-  },
-  {
-    icon: CreditCard,
-    title: "Оплата РФ-картой",
-    description: "Принимаем российские банковские карты, зарубежные карты не требуются",
-  },
-  {
-    icon: Zap,
-    title: "Быстрый старт в Telegram",
-    description: "Никаких сложных настроек — просто напишите боту и получите ответ",
-  },
-  {
-    icon: Shield,
-    title: "Доступ к топовым моделям",
-    description: "Используйте лучшие модели от OpenAI и Anthropic для любых задач",
-  },
-  {
-    icon: BarChart,
-    title: "Прозрачный лимит токенов",
-    description: "Всегда видите, сколько токенов использовали и сколько осталось",
-  },
-]
+import { Shield, CreditCard, Zap, BarChart, MessageSquare, Clock } from "lucide-react"
+import { useTranslation } from "@/lib/i18n/useTranslation"
+
+const icons = [Zap, Shield, BarChart, MessageSquare, CreditCard, Clock]
 
 export function WhySection() {
+  const t = useTranslation()
+  const benefits = t.why.benefits.map((benefit, index) => ({
+    ...benefit,
+    icon: icons[index],
+  }))
+
   return (
     <section className="py-20 md:py-32">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Почему <span className="text-gradient">eazy GPT</span>
+            {t.why.title} <span className="text-gradient">{t.why.titleBrand}</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Простой и удобный способ получить доступ к лучшим AI-моделям
-          </p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t.why.subtitle}</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

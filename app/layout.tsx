@@ -2,20 +2,21 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { LanguageProvider } from "@/lib/i18n/context"
 import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin", "cyrillic"] })
 const _geistMono = Geist_Mono({ subsets: ["latin", "cyrillic"] })
 
 export const metadata: Metadata = {
-  title: "eazy GPT — LLM в Telegram без VPN",
+  title: "eazy GPT — LLM in Telegram",
   description:
-    "Доступ к лучшим LLM-моделям от OpenAI и Anthropic прямо в Telegram. Без VPN, оплата российскими картами, 2500 ₽/месяц, 500 000 токенов.",
+    "Access to the best LLM models from OpenAI right in Telegram. Simple, fast, and convenient. 500,000 tokens for 2500 ₽.",
   generator: "v0.app",
-  keywords: ["OpenAI", "GPT", "Telegram", "бот", "LLM", "AI", "нейросеть", "без VPN"],
+  keywords: ["OpenAI", "GPT", "Telegram", "bot", "LLM", "AI", "neural network", "chatbot"],
   openGraph: {
-    title: "eazy GPT — LLM в Telegram без VPN",
-    description: "Доступ к лучшим LLM-моделям от OpenAI и Anthropic. Без VPN, оплата РФ-картами.",
+    title: "eazy GPT — LLM in Telegram",
+    description: "Access to the best LLM models from OpenAI right in Telegram. Simple, fast, and convenient.",
     type: "website",
   },
   icons: {
@@ -29,10 +30,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ru" className="dark">
+    <html lang="en" className="dark">
       <body className={`font-sans antialiased`}>
-        {children}
-        <Analytics />
+        <LanguageProvider>
+          {children}
+          <Analytics />
+        </LanguageProvider>
       </body>
     </html>
   )
