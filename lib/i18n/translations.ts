@@ -188,6 +188,7 @@ export const translations = {
         title: "What are tokens?",
         description:
           "Tokens are the volume of text in queries and responses. Consumption depends on dialog length. Usually one token ≈ 0.75 words.",
+        validity: "Token package is valid for 14 days from the date of purchase.",
       },
     },
 
@@ -218,7 +219,7 @@ export const translations = {
         {
           question: "How long is the token package valid?",
           answer:
-            "Token packages are valid until fully used. You can use tokens at your own pace without time limits.",
+            "Token packages are valid for 14 days from the date of purchase. Use your tokens within this period.",
         },
       ],
     },
@@ -449,6 +450,7 @@ export const translations = {
         title: "Что такое токены?",
         description:
           "Токены — это объём текста в запросах и ответах. Расход зависит от длины диалога. Обычно один токен ≈ 0,75 слова.",
+        validity: "Пакет токенов действует 14 дней с момента покупки.",
       },
     },
 
@@ -479,7 +481,7 @@ export const translations = {
         {
           question: "Как долго действует пакет токенов?",
           answer:
-            "Пакеты токенов действуют до полного использования. Вы можете использовать токены в своём темпе без временных ограничений.",
+            "Пакеты токенов действуют 14 дней с момента покупки. Используйте токены в течение этого периода.",
         },
       ],
     },

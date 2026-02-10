@@ -42,9 +42,12 @@ export function PricingSection() {
               </Button>
             </a>
 
-            <div className="pt-6 border-t border-border">
+            <div className="pt-6 border-t border-border space-y-3">
               <p className="text-sm text-muted-foreground leading-relaxed">
                 <strong>{t.pricing.tokensInfo.title}</strong> {t.pricing.tokensInfo.description}
+              </p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {t.pricing.tokensInfo.validity}
               </p>
             </div>
           </div>
