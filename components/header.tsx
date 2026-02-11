@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Menu, X, Globe } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useLanguage } from "@/lib/i18n/context"
 import { useTranslation } from "@/lib/i18n/useTranslation"
@@ -31,10 +31,6 @@ export function Header() {
     { label: t.header.documents, href: "#documents" },
   ]
 
-  const toggleLanguage = () => {
-    setLanguage(language === "en" ? "ru" : "en")
-  }
-
   return (
     <header
       className={cn(
@@ -61,14 +57,32 @@ export function Header() {
           </nav>
 
           <div className="flex items-center gap-4">
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Switch language"
-            >
-              <Globe size={18} />
-              <span className="font-medium">{language.toUpperCase()}</span>
-            </button>
+            <div className="flex items-center gap-1 bg-muted/50 rounded-lg p-1">
+              <button
+                onClick={() => setLanguage("en")}
+                className={cn(
+                  "px-3 py-1.5 text-sm font-medium rounded-md transition-all",
+                  language === "en"
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground",
+                )}
+                aria-label="Switch to English"
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLanguage("ru")}
+                className={cn(
+                  "px-3 py-1.5 text-sm font-medium rounded-md transition-all",
+                  language === "ru"
+                    ? "bg-primary text-primary-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground",
+                )}
+                aria-label="Switch to Russian"
+              >
+                RU
+              </button>
+            </div>
 
             <a href="#pricing" className="hidden md:inline-flex">
               <Button>{t.header.connectBot}</Button>
