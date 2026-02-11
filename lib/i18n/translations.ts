@@ -173,7 +173,7 @@ export const translations = {
       title: "Pricing",
       subtitle: "One plan with access to all features",
       package: "Token Package",
-      price: "2500 ₽",
+      price: "$29",
       perTokens: "for 500,000 tokens",
       features: [
         "500,000 tokens",
