@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, Building2 } from "lucide-react"
+import { Mail, Building2, MapPin, FileText } from "lucide-react"
 import { useTranslation } from "@/lib/i18n/useTranslation"
 
 export function ContactsSection() {
@@ -14,23 +14,66 @@ export function ContactsSection() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t.contacts.subtitle}</p>
         </div>
 
-        <div className="max-w-2xl mx-auto grid md:grid-cols-2 gap-8">
+        <div className="max-w-4xl mx-auto space-y-6">
+          {/* Company Name */}
           <div className="glow-card bg-card border border-border rounded-xl p-6 space-y-4">
-            <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-              <Building2 className="w-6 h-6 text-primary" />
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Building2 className="w-6 h-6 text-primary" />
+              </div>
+              <div className="space-y-2">
+                <h3 className="text-xl font-semibold">{t.contacts.company}</h3>
+                <p className="text-2xl font-bold text-gradient">{t.contacts.companyName}</p>
+              </div>
             </div>
-            <h3 className="text-xl font-semibold">{t.contacts.company}</h3>
-            <p className="text-2xl font-bold text-gradient">{t.contacts.companyName}</p>
           </div>
 
-          <div className="glow-card bg-card border border-border rounded-xl p-6 space-y-4">
-            <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
-              <Mail className="w-6 h-6 text-secondary" />
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Email */}
+            <div className="glow-card bg-card border border-border rounded-xl p-6 space-y-4">
+              <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center">
+                <Mail className="w-6 h-6 text-secondary" />
+              </div>
+              <h3 className="text-xl font-semibold">{t.contacts.email}</h3>
+              <a
+                href={`mailto:${t.contacts.emailAddress}`}
+                className="text-lg text-primary hover:text-primary/80 transition-colors break-all"
+              >
+                {t.contacts.emailAddress}
+              </a>
             </div>
-            <h3 className="text-xl font-semibold">{t.contacts.email}</h3>
-            <a href="mailto:info@forko-it.com" className="text-xl text-primary hover:text-primary/80 transition-colors">
-              info@forko-it.com
-            </a>
+
+            {/* Address */}
+            <div className="glow-card bg-card border border-border rounded-xl p-6 space-y-4">
+              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
+                <MapPin className="w-6 h-6 text-accent" />
+              </div>
+              <h3 className="text-xl font-semibold">{t.contacts.address}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{t.contacts.addressFull}</p>
+              <p className="text-sm text-muted-foreground">Hong Kong SAR, PRC</p>
+            </div>
+          </div>
+
+          {/* Registration Details */}
+          <div className="glow-card bg-card border border-border rounded-xl p-6 space-y-4">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <FileText className="w-6 h-6 text-primary" />
+              </div>
+              <div className="space-y-3 flex-1">
+                <h3 className="text-xl font-semibold">Registration Details</h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-sm text-muted-foreground">{t.contacts.registrationNo}</p>
+                    <p className="text-base font-semibold">{t.contacts.registrationValue}</p>
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">{t.contacts.businessRegNo}</p>
+                    <p className="text-base font-semibold">{t.contacts.businessRegValue}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

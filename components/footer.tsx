@@ -21,11 +21,11 @@ export function Footer() {
             <div className="space-y-2 text-sm text-muted-foreground">
               <p>{t.footer.companyName}</p>
               <a
-                href="mailto:info@forko-it.com"
-                className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+                href={`mailto:${t.contacts.emailAddress}`}
+                className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors break-all"
               >
                 <Mail className="w-4 h-4" />
-                info@forko-it.com
+                {t.contacts.emailAddress}
               </a>
             </div>
           </div>
